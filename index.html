@@ -6,21 +6,29 @@
     <title>Odin Calculator</title>
     <script src="./script.js" defer></script>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            background-color: #121212;
-            color: white;
-        }
-    </style>
 </head>
 <body>
     <h1>Calculator</h1>
     <div class="calculator-container">
-        <button id="add">&plus;</button>
-        <button id="sub">&minus;</button>
-        <button id="multiply">&times;</button>
-        <button id="divide">&divide;</button>
-        <button id="equal">&equals;</button>
+        <input type ="number" placeholder="0">
+        <div class="calculator-buttons">
+            <button class="calc-button is-clear" id="clear">&sub;</button>
+            <button class="calc-button" id="divide">&divide;</button>
+            <button class="calc-button">7</button>
+            <button class="calc-button">8</button>
+            <button class="calc-button">9</button>
+            <button class="calc-button" id="multiply">&times;</button>
+            <button class="calc-button">4</button>
+            <button class="calc-button">5</button>
+            <button class="calc-button">6</button>
+            <button class="calc-button" id="sub">&minus;</button>
+            <button class="calc-button">1</button>
+            <button class="calc-button">2</button>
+            <button class="calc-button">3</button>
+            <button class="calc-button" id="add">&plus;</button>
+            <button class="calc-button is-zero">0</button>
+            <button class="calc-button is-equals" id="equal">&equals;</button>
+        </div>
     </div>
 </body>
 </html>
