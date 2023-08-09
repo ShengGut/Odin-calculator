@@ -59,3 +59,7 @@ body {
 .is-equals {
     background: #28D060;
 }
+
+.operator-button.is-selected {
+    background-color: lightgray;
+}
