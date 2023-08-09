@@ -27,45 +27,37 @@ document.addEventListener("DOMContentLoaded", function () {
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
             const buttonValue = button.textContent;
-            // If button pressed is a number
-            if (!isNaN(buttonValue)) {
+            
+            if (!isNaN(buttonValue) || buttonValue === ".") {
                 currentInput += buttonValue;
                 inputField.value = currentInput;
-            } 
-            // If the button pressed is "C" (clear) button
-            else if (buttonValue === "C") {
+            } else if (buttonValue === "C") {
                 currentInput = "";
                 currentOperator = "";
                 prevValue = null;
                 result = null;
                 inputField.value = "";
-            } 
-            // If the button pressed is "=" (equals) button
-            else if (buttonValue === "=") {
+            } else if (buttonValue === "=") {
                 if (currentInput !== "") {
                     if (prevValue !== null && currentOperator !== "") {
                         result = operate(currentOperator, prevValue, parseFloat(currentInput));
                         inputField.value = result;
-                        currentInput = result;
+                        currentInput = result.toString();
                         prevValue = result;
                         currentOperator = "";
                     }
                 }
-            } 
-            // If the button pressed is an operator button (+, −, ×, ÷)
-            else {
-                    if (currentInput !== "") {
-                        if (prevValue !== null && currentOperator !== "") {
-                            // Perform previous operation and store the result as prevValue
-                            result = operate(currentOperator, prevValue, parseFloat(currentInput));
-                            prevValue = result;
-                            currentInput = "";
-                            currentOperator = buttonValue;
-                        } else {
-                            // Set the previous value to the current input and store the operator
-                            prevValue = parseFloat(currentInput);
-                            currentInput = "";
-                            currentOperator = buttonValue;
+            } else {
+                if (currentInput !== "") {
+                    if (prevValue !== null && currentOperator !== "") {
+                        result = operate(currentOperator, prevValue, parseFloat(currentInput));
+                        prevValue = result;
+                        currentInput = "";
+                        currentOperator = buttonValue;
+                    } else {
+                        prevValue = parseFloat(currentInput);
+                        currentInput = "";
+                        currentOperator = buttonValue;
                     }
                 }
             }
